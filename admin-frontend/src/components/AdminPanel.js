@@ -4,9 +4,7 @@ const AdminPanel = () => {
   const [nombrePolideportivo, setNombrePolideportivo] = useState('');
 
   const handleAgregarPolideportivo = () => {
-    // Lógica para enviar la información del nuevo polideportivo al servidor
     console.log('Agregar polideportivo:', nombrePolideportivo);
-    // Puedes usar Axios u otra biblioteca para enviar la solicitud al servidor
   };
 
   return (
@@ -25,7 +23,6 @@ const AdminPanel = () => {
           Agregar Polideportivo
         </button>
       </form>
-      {/* Puedes agregar aquí una tabla u otros elementos para mostrar y gestionar polideportivos existentes */}
     </div>
   );
 };

@@ -4,7 +4,7 @@ function App() {
   return (
     <Router>
       <Routes>
-      <Route path="/admin" element={<AdminPanel />} />
+      <Route path="/" element={<AdminPanel />} />
       </Routes>
     </Router>
   );
