@@ -3,26 +3,26 @@ import React from 'react';
 const AdminLayout = ({ children }) => {
     return (
         <div className="admin-layout">
-            <header>
-                <div className="px-3 py-2 bg-dark text-white">
-                    <div className="container">
-                        <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                            <a href="/" className="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
-                                <svg className="bi me-2" width="40" height="32" role="img" aria-label="TECSITE"><use/></svg>
-                            </a>
+        <header className="bg-dark text-white">
+            <div className="container py-2">
+                <div className="d-flex flex-wrap align-items-center justify-content-between">
+                    <a href="/" className="d-flex align-items-center text-white text-decoration-none">
+                        <img src="/ruta/de/la/imagen.png" alt="TECSITE Logo" width="40" height="32" className="me-2" />
+                        <span className="fs-4">TECSITE</span>
+                    </a>
 
-                            <ul className="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
-                                <li>
-                                    <a className="nav-link text-white">
-                                        <svg className="bi d-block mx-auto mb-1" width="24" height="24"><use Href="#Admin"/></svg>
-                                        Admin
-                                    </a>
-                                </li>
-                            </ul>
-                            </div>
-                        </div>
-                    </div>
-            </header>
+                    <ul className="nav col-12 col-lg-auto mt-2 mt-lg-0 text-small">
+                        <li>
+                            <a href="#" className="nav-link text-white">
+                                <svg className="bi d-block mx-auto mb-1" width="24" height="24"><use xlinkHref="#Admin"/></svg>
+                                Admin
+                            </a>
+                        </li>
+                        {/* Agrega más elementos de menú según sea necesario */}
+                    </ul>
+                </div>
+            </div>
+        </header>
             <div class="container">
                 <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
                     <div class="col-md-4 d-flex align-items-center">
