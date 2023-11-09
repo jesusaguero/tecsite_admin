@@ -13,41 +13,16 @@ const AdminLayout = ({ children }) => {
 
                             <ul className="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
                                 <li>
-                                    <a href="#" className="nav-link text-secondary">
+                                    <a className="nav-link text-white">
                                         <svg className="bi d-block mx-auto mb-1" width="24" height="24"><use Href="#Admin"/></svg>
                                         Admin
                                     </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="nav-link text-white">
-                                        <svg className="bi d-block mx-auto mb-1" width="24" height="24"><use href="#speedometer2"/></svg>
-                                        Dashboard
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="nav-link text-white">
-                                        <svg className="bi d-block mx-auto mb-1" width="24" height="24"><use href="#table"/></svg>
-                                        Orders
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="nav-link text-white">
-                                        <svg className="bi d-block mx-auto mb-1" width="24" height="24"><use href="#grid"/></svg>
-                                        Products
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="nav-link text-white">
-                                        <svg className="bi d-block mx-auto mb-1" width="24" height="24"><use href="#people-circle"/></svg>
-                                        Customers
-                                </a>
                                 </li>
                             </ul>
                             </div>
                         </div>
                     </div>
             </header>
-
             <div class="container">
                 <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
                     <div class="col-md-4 d-flex align-items-center">
