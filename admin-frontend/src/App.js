@@ -1,13 +1,11 @@
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
-import Login from './components/Login'; // crea este componente
-
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import AdminPanel from './components/AdminPanel';
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route path="/login" component={Login} />
-        {/* Otras rutas para el CRUD y otras vistas */}
-      </Switch>
+      <Routes>
+      <Route path="/admin" element={<AdminPanel />} />
+      </Routes>
     </Router>
   );
 }
