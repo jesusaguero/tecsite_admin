@@ -1,5 +1,3 @@
-// admin-frontend/src/App.js
-
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import Login from './components/Login'; // crea este componente
 
