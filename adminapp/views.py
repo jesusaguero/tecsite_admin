@@ -1,22 +1,29 @@
-import json
+# adminapp/views.py
+from rest_framework import generics
 
-from django.contrib.auth import authenticate, login
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-from django.views.decorators.http import require_POST
+from .models import (Laboratorio, Pabellon, Polideportivo,
+                     ReservaPolideportivo, Usuario)
+from .serializers import (LaboratorioSerializer, PabellonSerializer,
+                          PolideportivoSerializer,
+                          ReservaPolideportivoSerializer, UsuarioSerializer)
 
 
-@csrf_exempt
-@require_POST
-def login_view(request):
-    data = json.loads(request.body)
-    codigo = data.get('codigo', '')
-    contrasena = data.get('contrasena', '')
-    
-    user = authenticate(request, codigo=codigo, password=contrasena)
-    
-    if user is not None:
-        login(request, user)
-        return JsonResponse({'success': True})
-    else:
-        return JsonResponse({'success': False, 'error': 'Código o contraseña incorrectos'})
+class UsuarioListView(generics.ListCreateAPIView):
+    queryset = Usuario.objects.all()
+    serializer_class = UsuarioSerializer
+
+class PolideportivoListView(generics.ListCreateAPIView):
+    queryset = Polideportivo.objects.all()
+    serializer_class = PolideportivoSerializer
+
+class PabellonListView(generics.ListCreateAPIView):
+    queryset = Pabellon.objects.all()
+    serializer_class = PabellonSerializer
+
+class LaboratorioListView(generics.ListCreateAPIView):
+    queryset = Laboratorio.objects.all()
+    serializer_class = LaboratorioSerializer
+
+class ReservaPolideportivoListView(generics.ListCreateAPIView):
+    queryset = ReservaPolideportivo.objects.all()
+    serializer_class = ReservaPolideportivoSerializer
