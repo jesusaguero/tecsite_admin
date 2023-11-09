@@ -1,4 +1,3 @@
-# adminapp/urls.py
 from django.urls import path
 
 from .views import (LaboratorioListView, PabellonListView,
@@ -11,5 +10,4 @@ urlpatterns = [
     path('api/pabellones/', PabellonListView.as_view(), name='pabellon-list'),
     path('api/laboratorios/', LaboratorioListView.as_view(), name='laboratorio-list'),
     path('api/reservas/', ReservaPolideportivoListView.as_view(), name='reserva-list'),
-    # Agrega más URLs según sea necesario para otras vistas y acciones CRUD
 ]
