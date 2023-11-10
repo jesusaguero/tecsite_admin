@@ -18,48 +18,56 @@ const AdminLayout = ({ children }) => {
             </div>
             
             <div className="container">
+            <div className="jumbotron text-center">
+            <div className="card mb-4 box-shadow">
+                    <div className="card-header">
+                        <h4 className="my-0 font-weight-normal">POLIDEPORTIVOS</h4>
+                    </div>
+                    <div className="card-body text-center">
+                        <ul className="list-unstyled mt-3 mb-4">
+                            <img src="/polideportivo.png" alt="TECSITE Logo" width="400" height="300" className="logo" />
+                        </ul>
+                        <div className="button-group">
+                            <a className="btn btn-lg btn-warning mt-3">Ver Lista</a>
+                            <a className="btn btn-lg btn-success mt-3 btn-separator">Agregar</a>
+                            <a className="btn btn-lg btn-primary mt-3">Actualizar</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            <div className="card-deck mb-3 text-center">
+            <div className="card mb-4 box-shadow">
+                    <div className="card-header">
+                        <h4 className="my-0 font-weight-normal">LABORATORIOS</h4>
+                    </div>
+                    <div className="card-body text-center">
+                        <ul className="list-unstyled mt-3 mb-4">
+                            <img src="/aulas.png" alt="TECSITE Logo" width="400" height="300" className="logo" />
+                        </ul>
+                        <div className="button-group">
+                            <a className="btn btn-lg btn-warning mt-3">Ver Lista</a>
+                            <a className="btn btn-lg btn-success mt-3 btn-separator">Agregar</a>
+                            <a className="btn btn-lg btn-primary mt-3">Actualizar</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
                 <div className="card-deck mb-3 text-center">
                 <div className="card mb-4 box-shadow">
-                <div className="card-header">
-                    <h4 className="my-0 font-weight-normal">POLIDEPORTIVOS</h4>
+                    <div className="card-header">
+                        <h4 className="my-0 font-weight-normal">USUARIOS</h4>
+                    </div>
+                    <div className="card-body text-center">
+                        <ul className="list-unstyled mt-3 mb-4">
+                            <img src="/alumnos.png" alt="TECSITE Logo" width="400" height="300" className="logo" />
+                        </ul>
+                        <div className="button-group">
+                            <a className="btn btn-lg btn-warning mt-3">Ver Lista</a>
+                            <a className="btn btn-lg btn-success mt-3 btn-separator">Agregar</a>
+                            <a className="btn btn-lg btn-primary mt-3">Actualizar</a>
+                        </div>
+                    </div>
                 </div>
-                <div className="card-body text-center">
-                <ul className="list-unstyled mt-3 mb-4">
-                    <img src="/polideportivo.png" alt="TECSITE Logo" width="400" height="300" className="logo" />
-                </ul>
-                <button type="button" className="btn btn-lg btn-block btn-primary mt-3 btn-separator">Ver Lista</button>
-                <button type="button" className="btn btn-lg btn-block btn-primary mt-3 btn-separator">Agregar</button>
-                <button type="button" className="btn btn-lg btn-block btn-primary mt-3">Actualizar</button>
-            </div>
-            </div>
-            <div class="card mb-4 box-shadow">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">LABORATORIOS</h4>
-                </div>
-                <div className="card-body text-center">
-                    <ul class="list-unstyled mt-3 mb-4">
-                    <img src="/aulas.png" alt="TECSITE Logo" width="400" height="300" className="logo" />
-                    </ul>
-                    <button type="button" className="btn btn-lg btn-block btn-primary mt-3 btn-separator">Ver Lista</button>
-                    <button type="button" className="btn btn-lg btn-block btn-primary mt-3 btn-separator">Agregar</button>
-                    <button type="button" className="btn btn-lg btn-block btn-primary mt-3">Actualizar</button>
-                </div>
-            </div>
-            <div class="card mb-4 box-shadow">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">USUARIOS</h4>
-                </div>
-                <div className="card-body text-center">
-                <ul className="list-unstyled mt-3 mb-4">
-                    <img src="/alumnos.png" alt="TECSITE Logo" width="400" height="300" className="logo" />
-                </ul>
-                    <button type="button" className="btn btn-lg btn-block btn-primary mt-3 btn-separator">Ver Lista</button>
-                    <button type="button" className="btn btn-lg btn-block btn-primary mt-3 btn-separator">Agregar</button>
-                    <button type="button" className="btn btn-lg btn-block btn-primary mt-3">Actualizar</button>
-            </div>
-
-
-            </div>
                 </div>
             </div>
             <footer className="bg-dark text-white">
