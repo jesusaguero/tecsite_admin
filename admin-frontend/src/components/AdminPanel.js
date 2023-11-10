@@ -10,19 +10,7 @@ const AdminPanel = () => {
 
     return (
         <AdminLayout>
-            <form>
-                <label>
-                    Nombre del Polideportivo:
-                    <input
-                        type="text"
-                        value={nombrePolideportivo}
-                        onChange={(e) => setNombrePolideportivo(e.target.value)}
-                    />
-                </label>
-                <button type="button" onClick={handleAgregarPolideportivo}>
-                    Agregar Polideportivo
-                </button>
-            </form>
+
         </AdminLayout>
     );
 };
