@@ -1,4 +1,5 @@
 import React from 'react';
+import '/src/App.css';
 
 const AdminLayout = ({ children }) => {
     return (
@@ -28,7 +29,7 @@ const AdminLayout = ({ children }) => {
                     <ul className="list-unstyled mt-3 mb-4">
                         <img src="/polideportivo.png" alt="TECSITE Logo" width="400" height="300" className="logo" />
                     </ul>
-                    <button type="button" className="btn btn-lg btn-block btn-primary mt-5 btn-separator">Ver Lista</button>
+                    <button type="button" className="btn btn-lg btn-block btn-primary mt-3 btn-separator">Ver Lista</button>
                     <button type="button" className="btn btn-lg btn-block btn-primary mt-3 btn-separator">Agregar</button>
                     <button type="button" className="btn btn-lg btn-block btn-primary mt-3">Actualizar</button>
                 </div>
@@ -41,7 +42,7 @@ const AdminLayout = ({ children }) => {
                     <ul class="list-unstyled mt-3 mb-4">
                     <img src="/aulas.png" alt="TECSITE Logo" width="400" height="300" className="logo" />
                     </ul>
-                    <button type="button" className="btn btn-lg btn-block btn-primary mt-5 btn-separator">Ver Lista</button>
+                    <button type="button" className="btn btn-lg btn-block btn-primary mt-3 btn-separator">Ver Lista</button>
                     <button type="button" className="btn btn-lg btn-block btn-primary mt-3 btn-separator">Agregar</button>
                     <button type="button" className="btn btn-lg btn-block btn-primary mt-3">Actualizar</button>
                 </div>
@@ -54,7 +55,7 @@ const AdminLayout = ({ children }) => {
                 <ul className="list-unstyled mt-3 mb-4">
                     <img src="/alumnos.png" alt="TECSITE Logo" width="400" height="300" className="logo" />
                 </ul>
-                    <button type="button" className="btn btn-lg btn-block btn-primary mt-5 btn-separator">Ver Lista</button>
+                    <button type="button" className="btn btn-lg btn-block btn-primary mt-3 btn-separator">Ver Lista</button>
                     <button type="button" className="btn btn-lg btn-block btn-primary mt-3 btn-separator">Agregar</button>
                     <button type="button" className="btn btn-lg btn-block btn-primary mt-3">Actualizar</button>
             </div>
