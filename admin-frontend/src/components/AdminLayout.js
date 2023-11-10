@@ -1,6 +1,4 @@
 import React from 'react';
-import '/src/App.css';
-
 const AdminLayout = ({ children }) => {
     return (
         <div className="admin-layout">
@@ -26,13 +24,13 @@ const AdminLayout = ({ children }) => {
                     <h4 className="my-0 font-weight-normal">POLIDEPORTIVOS</h4>
                 </div>
                 <div className="card-body text-center">
-                    <ul className="list-unstyled mt-3 mb-4">
-                        <img src="/polideportivo.png" alt="TECSITE Logo" width="400" height="300" className="logo" />
-                    </ul>
-                    <button type="button" className="btn btn-lg btn-block btn-primary mt-3 btn-separator">Ver Lista</button>
-                    <button type="button" className="btn btn-lg btn-block btn-primary mt-3 btn-separator">Agregar</button>
-                    <button type="button" className="btn btn-lg btn-block btn-primary mt-3">Actualizar</button>
-                </div>
+                <ul className="list-unstyled mt-3 mb-4">
+                    <img src="/polideportivo.png" alt="TECSITE Logo" width="400" height="300" className="logo" />
+                </ul>
+                <button type="button" className="btn btn-lg btn-block btn-primary mt-3 btn-separator">Ver Lista</button>
+                <button type="button" className="btn btn-lg btn-block btn-primary mt-3 btn-separator">Agregar</button>
+                <button type="button" className="btn btn-lg btn-block btn-primary mt-3">Actualizar</button>
+            </div>
             </div>
             <div class="card mb-4 box-shadow">
                 <div class="card-header">
