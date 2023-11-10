@@ -1,18 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-const AdminLayout = ({ children }) => {
-    return (
-        <div className="admin-layout">
-            <header className="bg-dark text-white">
-                <div className="container py-2">
-                    <div className="d-flex flex-wrap align-items-center justify-content-center">
-                        <a href="/" className="d-flex align-items-center text-white text-decoration-none">
-                            <img src="/logo.png" alt="TECSITE Logo" width="120" height="120" className="logo" />
-                        </a>
-                    </div>
-                </div>
-            </header>
-        </div>
-    );
-    };
-export default AdminLayout;
+const VerLista = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    // Realizar la solicitud GET a tu API
+    fetch('http://127.0.0.1:8000/adminapp/api/laboratorios/')
+      .then(response => response.json())
+      .then(data => setData(data))
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
+  return (
+    <div>
+      <h1>Lista de Elementos</h1>
+      <ul>
+        {data.map(item => (
+          <li key={item.id}>{item.nombre}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default VerLista;
