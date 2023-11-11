@@ -29,7 +29,7 @@ const AdminLayout = ({ children }) => {
                             <img src="/polideportivo.png" alt="TECSITE Logo" width="400" height="300" className="logo" />
                         </ul>
                         <div className="button-group">
-                        <a href="./Verpoli"className="btn btn-lg btn-warning mt-3">Ver Lista</a>
+                        <a href="./verpoli"className="btn btn-lg btn-warning mt-3">Ver Lista</a>
                         <a href="./agregarpoli"className="btn btn-lg btn-success mt-3">Agregar</a>
                         <a href="./actualizarpoli"className="btn btn-lg btn-primary mt-3">Actualizar</a>
                         </div>

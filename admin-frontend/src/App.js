@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
-import ActualizarPoli from './components/Actualizarpoli';
 import AdminLayout from './components/AdminLayout';
 import AgregarPoli from './components/Agregarpoli';
 import Verpoli from './components/Verpoli';
+import ActualizarPoli from './components/actualizarpoli';
 function App() {
   return (
     <Router>
