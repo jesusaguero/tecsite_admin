@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import AdminLayout from './components/AdminLayout';
-import VerLista from "./components/laboratorio/lverlista";
+import VerLista from './components/laboratorio/verlista';
 
 function App() {
   return (
