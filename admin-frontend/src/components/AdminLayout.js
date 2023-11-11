@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const AdminLayout = ({ children }) => {
     return (
@@ -30,9 +29,9 @@ const AdminLayout = ({ children }) => {
                             <img src="/polideportivo.png" alt="TECSITE Logo" width="400" height="300" className="logo" />
                         </ul>
                         <div className="button-group">
-                            <Link to="/verpoli" className="btn btn-lg btn-warning mt-3">Ver Lista</Link>
-                            <Link to="/Agregarpoli" className="btn btn-lg btn-success mt-3 btn-separator">Agregar</Link>
-                            <Link to="/Actualizarpoli" className="btn btn-lg btn-primary mt-3">Actualizar</Link>
+                        <a href="./Verpoli"className="btn btn-lg btn-warning mt-3">Ver Lista</a>
+                        <a href="./agregarpoli"className="btn btn-lg btn-success mt-3">Agregar</a>
+                        <a href="./actualizarpoli"className="btn btn-lg btn-primary mt-3">Actualizar</a>
                         </div>
                     </div>
                 </div>
@@ -47,9 +46,9 @@ const AdminLayout = ({ children }) => {
                             <img src="/aulas.png" alt="TECSITE Logo" width="400" height="300" className="logo" />
                         </ul>
                         <div className="button-group">
-                            <Link to="/laboratorios/ver" className="btn btn-lg btn-warning mt-3">Ver Lista</Link>
-                            <Link to="/laboratorios/agregar" className="btn btn-lg btn-success mt-3 btn-separator">Agregar</Link>
-                            <Link to="/laboratorios/actualizar" className="btn btn-lg btn-primary mt-3">Actualizar</Link>
+                            <a href=""className="btn btn-lg btn-warning mt-3">Ver Lista</a>
+                            <a href=""className="btn btn-lg btn-success mt-3 btn-separator">Agregar</a>
+                            <a href=""className="btn btn-lg btn-primary mt-3">Actualizar</a>
                         </div>
                     </div>
                 </div>
@@ -64,9 +63,9 @@ const AdminLayout = ({ children }) => {
                             <img src="/alumnos.png" alt="TECSITE Logo" width="400" height="300" className="logo" />
                         </ul>
                         <div className="button-group">
-                            <Link to="/usuarios/verlista" className="btn btn-lg btn-warning mt-3">Ver Lista</Link>
-                            <Link to="/usuarios/agregar" className="btn btn-lg btn-success mt-3 btn-separator">Agregar</Link>
-                            <Link to="/usuarios/actualizar" className="btn btn-lg btn-primary mt-3">Actualizar</Link>
+                            <a href=""className="btn btn-lg btn-warning mt-3">Ver Lista</a>
+                            <a href=""className="btn btn-lg btn-success mt-3 btn-separator">Agregar</a>
+                            <a href=""className="btn btn-lg btn-primary mt-3">Actualizar</a>
                         </div>
                     </div>
                 </div>
