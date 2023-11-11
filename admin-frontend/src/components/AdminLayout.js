@@ -30,9 +30,9 @@ const AdminLayout = ({ children }) => {
                             <img src="/polideportivo.png" alt="TECSITE Logo" width="400" height="300" className="logo" />
                         </ul>
                         <div className="button-group">
-                            <Link to="/polideportivo/verlista" className="btn btn-lg btn-warning mt-3">Ver Lista</Link>
-                            <Link to="/polideportivo/agregar" className="btn btn-lg btn-success mt-3 btn-separator">Agregar</Link>
-                            <Link to="/polideportivo/actualizar" className="btn btn-lg btn-primary mt-3">Actualizar</Link>
+                            <Link to="/verpoli" className="btn btn-lg btn-warning mt-3">Ver Lista</Link>
+                            <Link to="/Agregarpoli" className="btn btn-lg btn-success mt-3 btn-separator">Agregar</Link>
+                            <Link to="/Actualizarpoli" className="btn btn-lg btn-primary mt-3">Actualizar</Link>
                         </div>
                     </div>
                 </div>
@@ -47,9 +47,9 @@ const AdminLayout = ({ children }) => {
                             <img src="/aulas.png" alt="TECSITE Logo" width="400" height="300" className="logo" />
                         </ul>
                         <div className="button-group">
-                            <Link to="/laboratorio/verlista" className="btn btn-lg btn-warning mt-3">Ver Lista</Link>
-                            <Link to="/laboratorio/agregar" className="btn btn-lg btn-success mt-3 btn-separator">Agregar</Link>
-                            <Link to="/laboratorio/actualizar" className="btn btn-lg btn-primary mt-3">Actualizar</Link>
+                            <Link to="/laboratorios/ver" className="btn btn-lg btn-warning mt-3">Ver Lista</Link>
+                            <Link to="/laboratorios/agregar" className="btn btn-lg btn-success mt-3 btn-separator">Agregar</Link>
+                            <Link to="/laboratorios/actualizar" className="btn btn-lg btn-primary mt-3">Actualizar</Link>
                         </div>
                     </div>
                 </div>
