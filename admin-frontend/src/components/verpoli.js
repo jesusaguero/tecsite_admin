@@ -18,31 +18,36 @@ const Verpoli = () => {
 
   return (
     <div>
-    <header className="bg-dark text-white">
+      <header className="bg-dark text-white">
         <div className="container py-2">
-            <div className="d-flex flex-wrap align-items-center justify-content-center">
-                <a href="/" className="d-flex align-items-center text-white text-decoration-none">
-                    <img src="/logo.png" alt="TECSITE Logo" width="120" height="120" className="logo" />
-                </a>
-            </div>
+          <div className="d-flex flex-wrap align-items-center justify-content-center">
+            <a href="/" className="d-flex align-items-center text-white text-decoration-none">
+              <img src="/logo.png" alt="TECSITE Logo" width="120" height="120" className="logo" />
+            </a>
+          </div>
         </div>
-    </header>
-      <h1>Lista de Polideportivos</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Nombre</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map(item => (
-            <tr key={item.id}>
-              <td>{item.nombre}</td>
+      </header>
+
+      <div className="container mt-4">
+        <h2 className="mb-4">Lista de Polideportivos</h2>
+        <table className="table table-striped table-bordered">
+          <thead className="thead-dark">
+            <tr>
+              <th scope="col">Nombre Polideportivo</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {data.map(item => (
+              <tr key={item.id}>
+                <td>{item.nombre}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <button type="button" class="btn btn-primary">Primary</button>
     </div>
+    
   );
 };
 
