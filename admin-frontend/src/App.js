@@ -9,11 +9,10 @@ const App = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/" element={<AdminLayout />} />
+        <Route path="/" render={() => <AdminLayout />} />
         <Route path="/laboratorio/verlista" component={VerLista} />
         <Route path="/laboratorio/agregar" component={AgregarLaboratorio} />
         <Route path="/laboratorio/actualizar/:id" component={ActualizarLaboratorio} />
-        {/* Otras rutas */}
       </Switch>
     </Router>
   );
