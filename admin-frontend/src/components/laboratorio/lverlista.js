@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const VerLista = () => {
   const [data, setData] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
-    // Realizar la solicitud GET a tu API
+    console.log('Current route path:', history.location.pathname);
+  }, [history]);
+
+  useEffect(() => {
+    // Fetch data from the API
     fetch('http://127.0.0.1:8000/adminapp/api/laboratorios/')
       .then(response => response.json())
       .then(data => setData(data))
