@@ -10,14 +10,28 @@ const VerLista = () => {
       .then(data => setData(data))
       .catch(error => console.error('Error fetching data:', error));
   }, []);
+
   return (
     <div>
-      <h1>Lista de Elementos</h1>
-      <ul>
-        {data.map(item => (
-          <li key={item.id}>{item.nombre}</li>
-        ))}
-      </ul>
+      <h1>Lista de Laboratorios</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Pabellón</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map(item => (
+            <tr key={item.id}>
+              <td>{item.id}</td>
+              <td>{item.nombre}</td>
+              <td>{item.pabellon}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

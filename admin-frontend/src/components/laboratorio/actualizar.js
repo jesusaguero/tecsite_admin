@@ -1,18 +1,57 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-const AdminLayout = ({ children }) => {
+const ActualizarLaboratorio = ({ match }) => {
+  const [laboratorio, setLaboratorio] = useState({});
+  const [nombre, setNombre] = useState('');
+  const [pabellon, setPabellon] = useState('');
+
+  useEffect(() => {
+    fetch(`http://127.0.0.1:8000/adminapp/api/laboratorios/${match.params.id}/`)
+      .then(response => response.json())
+      .then(data => {
+        setLaboratorio(data);
+        setNombre(data.nombre);
+        setPabellon(data.pabellon);
+      })
+      .catch(error => console.error('Error fetching laboratorio details:', error));
+  }, [match.params.id]);
+
+  const handleActualizar = () => {
+    fetch(`http://127.0.0.1:8000/adminapp/api/laboratorios/${match.params.id}/`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ nombre, pabellon }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Laboratorio actualizado:', data);
+      })
+      .catch(error => console.error('Error al actualizar el laboratorio:', error));
+  };
+
     return (
-        <div className="admin-layout">
-            <header className="bg-dark text-white">
-                <div className="container py-2">
-                    <div className="d-flex flex-wrap align-items-center justify-content-center">
-                        <a href="/" className="d-flex align-items-center text-white text-decoration-none">
-                            <img src="/logo.png" alt="TECSITE Logo" width="120" height="120" className="logo" />
-                        </a>
-                    </div>
-                </div>
-            </header>
-        </div>
-    );
-    };
-export default AdminLayout;
+        <div>
+            <h1>Actualizar Laboratorio</h1>
+            <form>
+        <label>
+            Nombre:
+            <input type="text" value={nombre} onChange={e => setNombre(e.target.value)} />
+        </label>
+        <br />
+        <label>
+          Pabellón:
+          <input type="text" value={pabellon} onChange={e => setPabellon(e.target.value)} />
+        </label>
+        <br />
+        <button type="button" onClick={handleActualizar}>
+          Actualizar Laboratorio
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default ActualizarLaboratorio;
+
