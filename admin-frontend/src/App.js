@@ -3,6 +3,7 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import AdminLayout from './components/AdminLayout';
 import Agregarlab from './components/Agregarlab';
 import AgregarPoli from './components/Agregarpoli';
+import Agregaruser from './components/Agregaruser';
 import Verpoli from './components/Verpoli';
 import Editarlab from './components/editarlab';
 import EditarPoli from './components/editarpoli';
@@ -18,6 +19,7 @@ function App() {
         <Route path="/agregarlab" component={Agregarlab} />"
         <Route path="/editarlab" component={Editarlab} />"
         <Route path="/verlab" component={Verlab} />
+        <Route path="/agregaruser" component={Agregaruser} />"
       </Switch>
     </Router>
   );
