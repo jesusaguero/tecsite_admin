@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const ActualizarPoli = () => {
+const EditarPoli = () => {
   const [polideportivos, setPolideportivos] = useState([]);
   const [poliSeleccionado, setPoliSeleccionado] = useState(null);
   const [nuevoNombre, setNuevoNombre] = useState('');
@@ -129,4 +129,4 @@ const ActualizarPoli = () => {
   );
 };
 
-export default ActualizarPoli;
+export default EditarPoli;
