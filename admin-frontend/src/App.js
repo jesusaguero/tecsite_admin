@@ -7,7 +7,9 @@ import Agregaruser from './components/Agregaruser';
 import Verpoli from './components/Verpoli';
 import Editarlab from './components/editarlab';
 import EditarPoli from './components/editarpoli';
+import Editaruser from './components/editaruser';
 import Verlab from './components/verlab';
+import Veruser from './components/veruser';
 function App() {
   return (
     <Router>
@@ -20,6 +22,8 @@ function App() {
         <Route path="/editarlab" component={Editarlab} />"
         <Route path="/verlab" component={Verlab} />
         <Route path="/agregaruser" component={Agregaruser} />"
+        <Route path="/editaruser" component={Editaruser} />"
+        <Route path="/veruser" component={Veruser} />
       </Switch>
     </Router>
   );
