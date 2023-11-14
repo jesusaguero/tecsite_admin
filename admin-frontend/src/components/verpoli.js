@@ -44,8 +44,10 @@ const Verpoli = () => {
             ))}
           </tbody>
         </table>
+        <div className="button-group">
+                <a href="/"className="btn btn-lg btn-primary mt-3">Regresar</a>
+        </div>
       </div>
-      <button type="button" class="btn btn-primary">Primary</button>
     </div>
     
   );
