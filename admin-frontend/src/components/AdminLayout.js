@@ -31,7 +31,7 @@ const AdminLayout = ({ children }) => {
                         <div className="button-group">
                         <a href="./verpoli"className="btn btn-lg btn-warning mt-3">Ver Lista</a>
                         <a href="./agregarpoli"className="btn btn-lg btn-success mt-3">Agregar</a>
-                        <a href="./editarrpoli"className="btn btn-lg btn-primary mt-3">Editar</a>
+                        <a href="./editarpoli"className="btn btn-lg btn-primary mt-3">Editar</a>
                         </div>
                     </div>
                 </div>
