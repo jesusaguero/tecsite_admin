@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Agregarlab = () => {
   const [nuevoLaboratorio, setNuevoLaboratorio] = useState({
@@ -6,7 +6,26 @@ const Agregarlab = () => {
     pabellon: '',
   });
 
+  const [pabellones, setPabellones] = useState([]);
   const [mensaje, setMensaje] = useState('');
+
+  useEffect(() => {
+    const fetchPabellones = async () => {
+      try {
+        const response = await fetch('http://127.0.0.1:8000/adminapp/api/pabellones/');
+        if (response.ok) {
+          const data = await response.json();
+          setPabellones(data);
+        } else {
+          console.error('Error al obtener la lista de pabellones:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+
+    fetchPabellones();
+  }, []);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -70,14 +89,18 @@ const Agregarlab = () => {
             <label htmlFor="pabellon" className="form-label">
               Pabellón:
             </label>
-            <input
-              type="text"
-              className="form-control"
+            <select
+              className="form-select"
               id="pabellon"
               name="pabellon"
               value={nuevoLaboratorio.pabellon}
               onChange={handleInputChange}
-            />
+            >
+              <option value="" disabled>Selecciona un pabellón</option>
+              {pabellones.map(pabellon => (
+                <option key={pabellon.id} value={pabellon.id}>{pabellon.nombre}</option>
+              ))}
+            </select>
           </div>
           <button type="submit" className="btn btn-success">
             Agregar

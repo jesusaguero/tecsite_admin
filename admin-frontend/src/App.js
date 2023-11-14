@@ -4,7 +4,9 @@ import AdminLayout from './components/AdminLayout';
 import Agregarlab from './components/Agregarlab';
 import AgregarPoli from './components/Agregarpoli';
 import Verpoli from './components/Verpoli';
+import Editarlab from './components/editarlab';
 import EditarPoli from './components/editarpoli';
+import Verlab from './components/verlab';
 function App() {
   return (
     <Router>
@@ -15,7 +17,7 @@ function App() {
         <Route path="/editarpoli" component={EditarPoli} />
         <Route path="/agregarlab" component={Agregarlab} />"
         <Route path="/editarlab" component={Editarlab} />"
-        <Route path="/verlab" component={Verlab} />"
+        <Route path="/verlab" component={Verlab} />
       </Switch>
     </Router>
   );

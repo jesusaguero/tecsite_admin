@@ -47,7 +47,7 @@ const AdminLayout = ({ children }) => {
                         </ul>
                         <div className="button-group">
                             <a href="./verlab"className="btn btn-lg btn-warning mt-3">Ver Lista</a>
-                            <a href="./agregarpoli"className="btn btn-lg btn-success mt-3 btn-separator">Agregar</a>
+                            <a href="./agregarlab"className="btn btn-lg btn-success mt-3 btn-separator">Agregar</a>
                             <a href="./editarlab"className="btn btn-lg btn-primary mt-3">Editar</a>
                         </div>
                     </div>
