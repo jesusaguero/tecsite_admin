@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import (Laboratorio, Pabellon, Polideportivo,
+from .models import (Laboratorio, Pabellon, Polideportivo, ReservaLaboratorio,
                      ReservaPolideportivo, Usuario)
 
 
@@ -24,7 +24,12 @@ class LaboratorioSerializer(serializers.ModelSerializer):
         model = Laboratorio
         fields = ['nombre', 'pabellon']
 
+class ReservaLaboratorioSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ReservaLaboratorio
+        fields = ['laboratorio', 'fecha', 'hora_inicio', 'hora_fin']
+
 class ReservaPolideportivoSerializer(serializers.ModelSerializer):
     class Meta:
         model = ReservaPolideportivo
-        fields = ['laboratorio', 'fecha', 'hora_inicio', 'hora_fin']
+        fields = ['polideportivo', 'fecha', 'hora_inicio', 'hora_fin']

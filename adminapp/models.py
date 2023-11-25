@@ -27,7 +27,7 @@ class Laboratorio(models.Model):
     def __str__(self):
         return self.nombre
 
-class ReservaPolideportivo(models.Model):
+class ReservaLaboratorio(models.Model):
     laboratorio = models.ForeignKey(Laboratorio, on_delete=models.CASCADE)
     fecha = models.DateField()
     hora_inicio = models.TimeField()
@@ -35,3 +35,12 @@ class ReservaPolideportivo(models.Model):
 
     def __str__(self):
         return f"{self.laboratorio} - {self.fecha} - {self.hora_inicio} a {self.hora_fin}"
+
+class ReservaPolideportivo(models.Model):
+    polideportivo = models.ForeignKey(Polideportivo, on_delete=models.CASCADE)
+    fecha = models.DateField()
+    hora_inicio = models.TimeField()
+    hora_fin = models.TimeField()
+
+    def __str__(self):
+        return f"{self.polideportivo} - {self.fecha} - {self.hora_inicio} a {self.hora_fin}"
