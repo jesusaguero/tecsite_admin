@@ -27,9 +27,9 @@ class LaboratorioSerializer(serializers.ModelSerializer):
 class ReservaLaboratorioSerializer(serializers.ModelSerializer):
     class Meta:
         model = ReservaLaboratorio
-        fields = ['laboratorio', 'fecha', 'hora_inicio', 'hora_fin']
+        fields = ['laboratorio.nombre', 'fecha', 'hora_inicio', 'hora_fin']
 
 class ReservaPolideportivoSerializer(serializers.ModelSerializer):
     class Meta:
         model = ReservaPolideportivo
-        fields = ['polideportivo', 'fecha', 'hora_inicio', 'hora_fin']
+        fields = ['polideportivo.nombre', 'fecha', 'hora_inicio', 'hora_fin']
