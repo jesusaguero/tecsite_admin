@@ -12,3 +12,5 @@ El proyecto TECSITE ADMIN, ha sido desarrollado usando la siguiente estructura:
    -)pip install django-filter
 3) django cors-headers
    -)pip install django-cors-headers
+4) PyMySQL
+   -)pip install PyMySQL
