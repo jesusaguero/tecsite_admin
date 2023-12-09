@@ -23,14 +23,9 @@ class Pabellon(models.Model):
 class Laboratorio(models.Model):
     nombre = models.CharField(max_length=255)
     pabellon = models.ForeignKey(Pabellon, on_delete=models.CASCADE)
-    pabellon_nombre = models.CharField(max_length=255)
 
     def __str__(self):
         return f"{self.nombre} - {self.pabellon_nombre}"
-
-    def save(self, *args, **kwargs):
-        self.pabellon_nombre = self.pabellon.nombre
-        super().save(*args, **kwargs)
     
 class Horario(models.Model):
     hora_inicio = models.TimeField()
@@ -42,13 +37,7 @@ class Horario(models.Model):
 class ReservaLaboratorio(models.Model):
     laboratorio_nombre = models.CharField(max_length=255)
     fecha = models.DateField()
-    horario_inicio = models.TimeField()
-    horario_fin = models.TimeField()
-
-    def save(self, *args, **kwargs):
-        self.laboratorio = Laboratorio.objects.get(nombre=self.laboratorio_nombre)
-        self.horario = Horario.objects.get(hora_inicio=self.horario_inicio, hora_fin=self.horario_fin)
-        super().save(*args, **kwargs)
+    Horario = models.ForeignKey(Horario, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.laboratorio.nombre} - {self.fecha} - {self.horario}"
@@ -56,13 +45,7 @@ class ReservaLaboratorio(models.Model):
 class ReservaPolideportivo(models.Model):
     polideportivo_nombre = models.CharField(max_length=255)
     fecha = models.DateField()
-    horario_inicio = models.TimeField()
-    horario_fin = models.TimeField()
-
-    def save(self, *args, **kwargs):
-        self.polideportivo = Polideportivo.objects.get(nombre=self.polideportivo_nombre)
-        self.horario = Horario.objects.get(hora_inicio=self.horario_inicio, hora_fin=self.horario_fin)
-        super().save(*args, **kwargs)
+    Horario = models.ForeignKey(Horario, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.polideportivo.nombre} - {self.fecha} - {self.horario}"
