@@ -23,13 +23,14 @@ class Pabellon(models.Model):
 class Laboratorio(models.Model):
     nombre = models.CharField(max_length=255)
     pabellon = models.ForeignKey(Pabellon, on_delete=models.CASCADE)
+    pabellon_nombre = models.CharField(max_length=255)
+
+    def __str__(self):
+        return f"{self.nombre} - {self.pabellon_nombre}"
 
     def save(self, *args, **kwargs):
         self.pabellon_nombre = self.pabellon.nombre
         super().save(*args, **kwargs)
-
-    def __str__(self):
-        return f"{self.nombre} - {self.pabellon_nombre}"
     
 class Horario(models.Model):
     hora_inicio = models.TimeField()
