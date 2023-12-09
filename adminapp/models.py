@@ -35,7 +35,7 @@ class Horario(models.Model):
         return f"{self.hora_inicio.strftime('%H:%M')} a {self.hora_fin.strftime('%H:%M')}"
 
 class ReservaLaboratorio(models.Model):
-    laboratorio = models.ForeignKey(Laboratorio, on_delete=models.CASCADE, default=1)
+    laboratorio = models.ForeignKey(Laboratorio, on_delete=models.CASCADE, default=0)
     fecha = models.DateField()
     Horario = models.ForeignKey(Horario, on_delete=models.CASCADE)
 
@@ -43,7 +43,7 @@ class ReservaLaboratorio(models.Model):
         return f"{self.laboratorio.nombre} - {self.Horario} "
 
 class ReservaPolideportivo(models.Model):
-    polideportivo = models.ForeignKey(Polideportivo, on_delete=models.CASCADE, default=1)
+    polideportivo = models.ForeignKey(Polideportivo, on_delete=models.CASCADE, default=0)
     fecha = models.DateField()
     Horario = models.ForeignKey(Horario, on_delete=models.CASCADE)
 
