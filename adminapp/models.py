@@ -25,7 +25,7 @@ class Laboratorio(models.Model):
     pabellon = models.ForeignKey(Pabellon, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.nombre} - {self.pabellon_nombre}"
+        return f"{self.nombre} - {self.pabellon}"
     
 class Horario(models.Model):
     hora_inicio = models.TimeField()
@@ -35,17 +35,17 @@ class Horario(models.Model):
         return f"{self.hora_inicio.strftime('%H:%M')} a {self.hora_fin.strftime('%H:%M')}"
 
 class ReservaLaboratorio(models.Model):
-    laboratorio_nombre = models.CharField(max_length=255)
+    laboratorio = models.ForeignKey(Laboratorio, on_delete=models.CASCADE, default=1)
     fecha = models.DateField()
     Horario = models.ForeignKey(Horario, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.laboratorio.nombre} - {self.fecha} - {self.horario}"
+        return f"{self.laboratorio.nombre} - {self.Horario} "
 
 class ReservaPolideportivo(models.Model):
-    polideportivo_nombre = models.CharField(max_length=255)
+    polideportivo = models.ForeignKey(Polideportivo, on_delete=models.CASCADE, default=1)
     fecha = models.DateField()
     Horario = models.ForeignKey(Horario, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.polideportivo.nombre} - {self.fecha} - {self.horario}"
+        return f"{self.polideportivo.nombre} - {self.Horario}"
