@@ -16,3 +16,9 @@ El proyecto TECSITE ADMIN, ha sido desarrollado usando la siguiente estructura:
    -)pip install PyMySQL
 4.1) MySql
    -)pip install mysqlclient
+# Paquetes instalados para la creación de React Front-end
+1) npx create-react-app adminapp
+2) npm i react-scripts
+3) npm install react-router-dom
+4) npm install axios
+5) npm install bootstrap
