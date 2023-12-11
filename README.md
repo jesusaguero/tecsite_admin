@@ -18,3 +18,8 @@ El proyecto TECSITE ADMIN, ha sido desarrollado usando la siguiente estructura:
 3) npm install react-router-dom
 4) npm install axios
 5) npm install bootstrap
+   
+# Comando para iniciar proyecto en Django
+-) Python manage.py runserver
+# Comando para iniciar proyecto en Spring Boot
+-) npm start
