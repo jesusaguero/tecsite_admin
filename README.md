@@ -6,11 +6,12 @@ El proyecto TECSITE ADMIN, ha sido desarrollado usando la siguiente estructura:
 
 # Paquetes instalados para la creación de la API REST
 
-1) pip install djangorestframework
-2) pip install django-filter
-3) pip install django-cors-headers
-4) pip install PyMySQL
-5) pip install mysqlclient
+1) python -m ven env
+2) pip install djangorestframework
+3) pip install django-filter
+4) pip install django-cors-headers
+5) pip install PyMySQL
+6) pip install mysqlclient
    
 # Paquetes instalados para la creación de React Front-end
 1) npx create-react-app adminapp
