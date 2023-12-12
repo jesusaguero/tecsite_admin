@@ -71,6 +71,45 @@ const AdminLayout = ({ children }) => {
                 </div>
                 </div>
             </div>
+
+               <div className="container">
+                <div className="card-deck mb-3 text-center">
+                    <div className="card mb-4 box-shadow">
+                        <div className="card-header">
+                            <h4 className="my-0 font-weight-normal">Reserva de Polideportivos</h4>
+                        </div>
+                        <div className="card-body text-center">
+                            <ul className="list-unstyled mt-3 mb-4">
+                                <img src="./reserva_polideportivo.png" alt="Reserva de Polideportivos" width="400" height="300" className="logo" />
+                            </ul>
+                            <div className="button-group">
+                                <a href="./verreservapoli" className="btn btn-lg btn-warning mt-3">Ver Reservas</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div className="container">
+                <div className="card-deck mb-3 text-center">
+                    <div className="card mb-4 box-shadow">
+                        <div className="card-header">
+                            <h4 className="my-0 font-weight-normal">Reserva de Laboratorios</h4>
+                        </div>
+                        <div className="card-body text-center">
+                            <ul className="list-unstyled mt-3 mb-4">
+                                <img src="/reserva_laboratorio.png" alt="Reserva de Laboratorios" width="400" height="300" className="logo" />
+                            </ul>
+                            <div className="button-group">
+                                <a href="./verreservalab" className="btn btn-lg btn-warning mt-3">Ver Reservas</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <footer className="bg-dark text-white">
                 <div className="container py-2">
                     <div className="d-flex flex-wrap align-items-center justify-content-center">
