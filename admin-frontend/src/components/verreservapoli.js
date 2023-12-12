@@ -6,7 +6,7 @@ const VerReservaPoli = () => {
   useEffect(() => {
     const fetchReservas = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/adminapp/api/reservapolideportivo/');
+        const response = await fetch('http://127.0.0.1:8000/adminapp/api/reservapolideportivos/');
         const data = await response.json();
         setReservas(data);
       } catch (error) {

@@ -80,7 +80,7 @@ const AdminLayout = ({ children }) => {
                         </div>
                         <div className="card-body text-center">
                             <ul className="list-unstyled mt-3 mb-4">
-                                <img src="./reserva_polideportivo.png" alt="Reserva de Polideportivos" width="400" height="300" className="logo" />
+                                <img src="./polideportivobk.png" alt="Reserva de Polideportivos" width="400" height="300" className="logo" />
                             </ul>
                             <div className="button-group">
                                 <a href="./verreservapoli" className="btn btn-lg btn-warning mt-3">Ver Reservas</a>
@@ -99,7 +99,7 @@ const AdminLayout = ({ children }) => {
                         </div>
                         <div className="card-body text-center">
                             <ul className="list-unstyled mt-3 mb-4">
-                                <img src="/reserva_laboratorio.png" alt="Reserva de Laboratorios" width="400" height="300" className="logo" />
+                                <img src="/laboratoriobk.png" alt="Reserva de Laboratorios" width="400" height="300" className="logo" />
                             </ul>
                             <div className="button-group">
                                 <a href="./verreservalab" className="btn btn-lg btn-warning mt-3">Ver Reservas</a>

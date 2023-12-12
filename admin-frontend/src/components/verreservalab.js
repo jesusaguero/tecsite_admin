@@ -7,7 +7,7 @@ const VerReservaLab = () => {
     const fetchReservasLab = async () => {
       try {
         // Realiza una solicitud para obtener las reservas de laboratorios
-        const response = await fetch('http://127.0.0.1:8000/adminapp/api/reservas_laboratorios/');
+        const response = await fetch('http://127.0.0.1:8000/adminapp/api/reservalaboratorios/');
         const data = await response.json();
         setReservasLab(data);
       } catch (error) {
