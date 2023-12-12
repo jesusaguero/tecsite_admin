@@ -1,9 +1,10 @@
 from rest_framework import generics
 
 from .models import (Horario, Laboratorio, Pabellon, Polideportivo,
-                     ReservaPolideportivo, Usuario)
+                     ReservaLaboratorio, ReservaPolideportivo, Usuario)
 from .serializers import (HorarioSerializer, LaboratorioSerializer,
                           PabellonSerializer, PolideportivoSerializer,
+                          ReservaLaboratorioSerializer,
                           ReservaPolideportivoSerializer, UsuarioSerializer)
 
 
@@ -30,3 +31,7 @@ class HorarioListView(generics.ListCreateAPIView):
 class ReservaPolideportivoListView(generics.ListCreateAPIView):
     queryset = ReservaPolideportivo.objects.all()
     serializer_class = ReservaPolideportivoSerializer
+
+class ReservaLaboratorioListView(generics.ListCreateAPIView):
+    queryset = ReservaLaboratorio.objects.all()
+    serializer_class = ReservaLaboratorioSerializer
