@@ -35,15 +35,19 @@ const VerReservaLab = () => {
         <table className="table table-striped table-bordered">
           <thead className="thead-dark">
             <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Nombre Laboratorio</th>
+              <th scope="col">Fecha de reserva</th>
+              <th scope="col">Horario reserva</th>
+              <th scope="col">Nombre del laboratorio</th>
+              <th scope="col">Aula</th>
+              <th scope="col">Cod. Estudiante</th>
             </tr>
           </thead>
           <tbody>
             {reservasLab.map(reservaLab => (
               <tr key={reservaLab.id}>
-                <td>{reservaLab.id}</td>
-                <td>{reservaLab.nombreLaboratorio}</td>
+                <td>{reservaLab.fecha}</td>
+                <td>{reservaLab.Horario_id}</td>
+                <td>{reservaLab.laboratorio_id}</td>
               </tr>
             ))}
           </tbody>

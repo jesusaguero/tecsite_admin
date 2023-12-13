@@ -34,17 +34,18 @@ const VerReservaPoli = () => {
         <table className="table table-striped table-bordered">
   <thead className="thead-dark">
     <tr>
-      <th scope="col">ID</th>
       <th scope="col">Nombre Polideportivo</th>
       <th scope="col">Fecha</th>
+      <th scope="col">Usuario</th>
+
     </tr>
   </thead>
   <tbody>
     {reservas.map(item => (
       <tr key={item.id}>
-        <td>{item.id}</td>
         <td>{item.nombrePolideportivo}</td>
-        <td>{item.horario}</td> 
+        <td>{item.fecha}</td> 
+
       </tr>
     ))}
   </tbody>
