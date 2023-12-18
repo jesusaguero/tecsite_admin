@@ -1,127 +1,101 @@
+// AdminLayout.js
 import React from 'react';
+import CardDefault from './CardDefault';
+
 
 const AdminLayout = ({ children }) => {
-    return (
-        <div className="admin-layout">
-            <header className="bg-dark text-white">
-                <div className="container py-2">
-                    <div className="d-flex flex-wrap align-items-center justify-content-center">
-                        <a href="/" className="d-flex align-items-center text-white text-decoration-none">
-                            <img src="/logo.png" alt="TECSITE Logo" width="120" height="120" className="logo" />
-                        </a>
-                    </div>
-                </div>
-            </header>
-            
-            <div className="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-                <h1 className="display-4">Bienvenido</h1>
-                <p className="lead">Gracias por formar parte del TEAM TECSITE by Tecsup.</p>
-            </div>
-            
-            <div className="container">
-            <div className="jumbotron text-center">
-            <div className="card mb-4 box-shadow">
-                    <div className="card-header">
-                        <h4 className="my-0 font-weight-normal">POLIDEPORTIVOS</h4>
-                    </div>
-                    <div className="card-body text-center">
-                        <ul className="list-unstyled mt-3 mb-4">
-                            <img src="/polideportivo.png" alt="TECSITE Logo" width="400" height="300" className="logo" />
-                        </ul>
-                        <div className="button-group">
-                        <a href="./verpoli"className="btn btn-lg btn-warning mt-3">Ver Lista</a>
-                        <a href="./agregarpoli"className="btn btn-lg btn-success mt-3">Agregar</a>
-                        <a href="./editarpoli"className="btn btn-lg btn-primary mt-3">Editar</a>
-                        </div>
-                    </div>
-                </div>
-                </div>
-            <div className="card-deck mb-3 text-center">
-            <div className="card mb-4 box-shadow">
-                    <div className="card-header">
-                        <h4 className="my-0 font-weight-normal">LABORATORIOS</h4>
-                    </div>
-                    <div className="card-body text-center">
-                        <ul className="list-unstyled mt-3 mb-4">
-                            <img src="/aulas.png" alt="TECSITE Logo" width="400" height="300" className="logo" />
-                        </ul>
-                        <div className="button-group">
-                            <a href="./verlab"className="btn btn-lg btn-warning mt-3">Ver Lista</a>
-                            <a href="./agregarlab"className="btn btn-lg btn-success mt-3 btn-separator">Agregar</a>
-                            <a href="./editarlab"className="btn btn-lg btn-primary mt-3">Editar</a>
-                        </div>
-                    </div>
-                </div>
-                </div>
-                <div className="card-deck mb-3 text-center">
-                <div className="card mb-4 box-shadow">
-                    <div className="card-header">
-                        <h4 className="my-0 font-weight-normal">USUARIOS</h4>
-                    </div>
-                    <div className="card-body text-center">
-                        <ul className="list-unstyled mt-3 mb-4">
-                            <img src="/alumnos.png" alt="TECSITE Logo" width="400" height="300" className="logo" />
-                        </ul>
-                        <div className="button-group">
-                            <a href="./veruser"className="btn btn-lg btn-warning mt-3">Ver Lista</a>
-                            <a href="./agregaruser"className="btn btn-lg btn-success mt-3 btn-separator">Agregar</a>
-                            <a href="./editaruser"className="btn btn-lg btn-primary mt-3">Editar</a>
-                        </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-
-               <div className="container">
-                <div className="card-deck mb-3 text-center">
-                    <div className="card mb-4 box-shadow">
-                        <div className="card-header">
-                            <h4 className="my-0 font-weight-normal">Reserva de Polideportivos</h4>
-                        </div>
-                        <div className="card-body text-center">
-                            <ul className="list-unstyled mt-3 mb-4">
-                                <img src="./polideportivobk.png" alt="Reserva de Polideportivos" width="400" height="300" className="logo" />
-                            </ul>
-                            <div className="button-group">
-                                <a href="./verreservapoli" className="btn btn-lg btn-warning mt-3">Ver Reservas</a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div className="container">
-                <div className="card-deck mb-3 text-center">
-                    <div className="card mb-4 box-shadow">
-                        <div className="card-header">
-                            <h4 className="my-0 font-weight-normal">Reserva de Laboratorios</h4>
-                        </div>
-                        <div className="card-body text-center">
-                            <ul className="list-unstyled mt-3 mb-4">
-                                <img src="/laboratoriobk.png" alt="Reserva de Laboratorios" width="400" height="300" className="logo" />
-                            </ul>
-                            <div className="button-group">
-                                <a href="./verreservalab" className="btn btn-lg btn-warning mt-3">Ver Reservas</a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <footer className="bg-dark text-white">
-                <div className="container py-2">
-                    <div className="d-flex flex-wrap align-items-center justify-content-center">
-                        <a href="/" className="d-flex align-items-center text-white text-decoration-none">
-                            <img src="/logo.png" alt="TECSITE Logo" width="120" height="120" className="logo" />
-                        </a>
-                    </div>
-                </div>
-            </footer>
-            <main>{children}</main>
+  return (
+    <div className="admin-layout">
+      <header className="bg-dark text-white">
+        <div className="container py-2">
+          <div className="d-flex flex-wrap align-items-center justify-content-center">
+            <a href="/" className="d-flex align-items-center text-white text-decoration-none">
+              <img src="/logo.png" alt="TECSITE Logo" width="120" height="120" className="logo" />
+            </a>
+          </div>
         </div>
-    );
+      </header>
+      <div className="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 className="display-4">Bienvenido</h1>
+        <p className="lead">Gracias por formar parte del TEAM TECSITE by Tecsup.</p>
+      </div>
+      <div className="container">
+        <div className="row">
+        <div className="col-md-4">
+            <CardDefault
+              title="Usuarios"
+              imageSrc="/alumnos.png"
+              imageWidth={400}
+              imageHeight={300}
+            />
+        <div className="mt-3 text-center">
+        <a href="/veruser" className="btn btn-primary mb-3">Ver lista</a>
+        <a href="/Agregaruser" className="btn btn-success mb-3 mx-2">Agregar</a>
+        <a href="/editaruser" className="btn btn-warning mb-3 mx-2">Editar</a>
+        </div>
+          </div>
+          <div className="col-md-4">
+            <CardDefault
+              title="Laboratorios"
+              imageSrc="/aulas.png"
+              imageWidth={400}
+              imageHeight={300}
+            />
+        <div className="mt-3 text-center">
+        <a href="/verlab" className="btn btn-primary mb-3">Ver lista</a>
+        <a href="/Agregarlab" className="btn btn-success mb-3 mx-2">Agregar</a>
+        <a href="/editarlab" className="btn btn-warning mb-3 mx-2">Editar</a>
+        </div>
+          </div>
+          <div className="col-md-4">
+            <CardDefault
+              title="Polideportivos"
+              imageSrc="/polideportivo.png"
+              imageWidth={400}
+              imageHeight={300}
+            />
+        <div className="mt-3 text-center">
+        <a href="/Verpoli" className="btn btn-primary mb-3">Ver lista</a>
+        <a href="/Agregarpoli" className="btn btn-success mb-3 mx-2">Agregar</a>
+        <a href="/editarpoli" className="btn btn-warning mb-3 mx-2">Editar</a>
+        </div>
+          </div>
+          <div className="col-md-4">
+            <CardDefault
+              title="Reserva Polideportivo"
+              imageSrc="/polideportivobk.png"
+              imageWidth={400}
+              imageHeight={300}
+            />
+        <div className="mt-3 text-center">
+        <a href="/verreservapoli" className="btn btn-primary mb-3">Ver reservas</a>
+        </div>
+          </div>
+          <div className="col-md-4">
+            <CardDefault
+              title="Reserva Laboratorio"
+              imageSrc="/laboratoriobk.png"
+              imageWidth={400}
+              imageHeight={300}
+            />
+        <div className="mt-3 text-center">
+        <a href="/verreservalab" className="btn btn-primary mb-3">Ver reservas</a>
+        </div>
+          </div>
+        </div>
+      </div>
+      <footer className="bg-dark text-white">
+        <div className="container py-2">
+          <div className="d-flex flex-wrap align-items-center justify-content-center">
+            <a href="/" className="d-flex align-items-center text-white text-decoration-none">
+              <img src="/logo.png" alt="TECSITE Logo" width="120" height="120" className="logo" />
+            </a>
+          </div>
+        </div>
+      </footer>
+      <main>{children}</main>
+    </div>
+  );
 };
 
 export default AdminLayout;
