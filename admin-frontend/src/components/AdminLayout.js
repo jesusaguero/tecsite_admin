@@ -68,9 +68,9 @@ const AdminLayout = ({ children }) => {
               imageHeight={300}
             />
         <div className="mt-3 text-center">
-        <a href="/Verpoli" className="btn btn-primary mb-3">Ver horarios</a>
-        <a href="/Agregarpoli" className="btn btn-success mb-3 mx-2">Agregar</a>
-        <a href="/editarpoli" className="btn btn-warning mb-3 mx-2">Editar</a>        </div>
+        <a href="/verhorario" className="btn btn-primary mb-3">Ver horarios</a>
+        <a href="/Agregarhorario" className="btn btn-success mb-3 mx-2">Agregar</a>
+        <a href="/editarhorario" className="btn btn-warning mb-3 mx-2">Editar</a>        </div>
           </div>
           <div className="col-md-4">
             <CardDefault
