@@ -62,6 +62,18 @@ const AdminLayout = ({ children }) => {
           </div>
           <div className="col-md-4">
             <CardDefault
+              title="Horario"
+              imageSrc="/calendar.png"
+              imageWidth={380}
+              imageHeight={300}
+            />
+        <div className="mt-3 text-center">
+        <a href="/Verpoli" className="btn btn-primary mb-3">Ver horarios</a>
+        <a href="/Agregarpoli" className="btn btn-success mb-3 mx-2">Agregar</a>
+        <a href="/editarpoli" className="btn btn-warning mb-3 mx-2">Editar</a>        </div>
+          </div>
+          <div className="col-md-4">
+            <CardDefault
               title="Reserva Polideportivo"
               imageSrc="/polideportivobk.png"
               imageWidth={400}

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const EditarUser = () => {
   const [usuarios, setUsuarios] = useState([]);
-  const [userSeleccionado, setUserSeleccionado] = useState(null);
+  const [userSeleccionado, setUserSeleccionado] = useState({ id: null, codigo: '' });
   const [nuevoCodigo, setNuevoCodigo] = useState('');
   const [nuevaContrasena, setNuevaContrasena] = useState('');
   const [mensaje, setMensaje] = useState('');
@@ -26,11 +26,14 @@ const EditarUser = () => {
   }, []);
 
   const handleUserChange = (event) => {
+    console.log('handleUserChange:', event.target.value);
+    console.log('userSeleccionado:', userSeleccionado);
+    console.log('nuevoCodigo:', nuevoCodigo);
+    console.log('nuevaContrasena:', nuevaContrasena);
     const codigoSeleccionado = event.target.value;
     const user = usuarios.find(item => item.codigo === codigoSeleccionado);
-    setUserSeleccionado(user);
+    setUserSeleccionado({ id: user ? user.id : null, codigo: codigoSeleccionado });
 
-    // Inicializa los campos de nuevo código y nueva contraseña con los valores actuales del usuario seleccionado
     setNuevoCodigo(user ? user.codigo : '');
     setNuevaContrasena(user ? user.contrasena : '');
   };
@@ -44,15 +47,16 @@ const EditarUser = () => {
   };
 
   const handleSubmit = async (event) => {
+    console.log('handleSubmit');
     event.preventDefault();
 
-    if (!userSeleccionado) {
+    if (!userSeleccionado.id) {
       setMensaje('Debes seleccionar un usuario para actualizar.');
       return;
     }
 
     try {
-      const response = await fetch(`http://127.0.0.1:8000/adminapp/api/usuarios/${userSeleccionado.codigo}/`, {
+      const response = await fetch(`http://127.0.0.1:8000/adminapp/api/usuarios/${userSeleccionado.id}/`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -63,13 +67,23 @@ const EditarUser = () => {
       if (response.ok) {
         setMensaje('Usuario actualizado exitosamente');
         // Puedes limpiar el formulario después de actualizar exitosamente
-        setUserSeleccionado(null);
+        setUserSeleccionado({ id: null });
         setNuevoCodigo('');
         setNuevaContrasena('');
       } else {
+        console.error(`Error al actualizar usuario: ${response.statusText}`);
+
+        try {
+          const responseData = await response.json();
+          console.error('Datos de la respuesta:', responseData);
+        } catch (jsonError) {
+          console.error('Error al analizar JSON de la respuesta:', jsonError);
+        }
+
         setMensaje(`Error al actualizar usuario: ${response.statusText}`);
       }
     } catch (error) {
+      console.error('Error en handleSubmit:', error);
       setMensaje(`Error: ${error.message}`);
     }
   };

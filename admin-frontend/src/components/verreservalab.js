@@ -2,20 +2,38 @@ import React, { useEffect, useState } from 'react';
 
 const VerReservaLab = () => {
   const [reservasLab, setReservasLab] = useState([]);
+  const [horarios, setHorarios] = useState([]);
+  const [laboratorios, setLaboratorios] = useState([]);
+  const [usuarios, setUsuarios] = useState([]);
 
   useEffect(() => {
-    const fetchReservasLab = async () => {
+    const fetchData = async () => {
       try {
-        // Realiza una solicitud para obtener las reservas de laboratorios
-        const response = await fetch('http://127.0.0.1:8000/adminapp/api/reservalaboratorios/');
-        const data = await response.json();
-        setReservasLab(data);
+        // Obtener reservas de laboratorios
+        const reservasResponse = await fetch('http://127.0.0.1:8000/adminapp/api/reservalaboratorios/');
+        const reservasData = await reservasResponse.json();
+        setReservasLab(reservasData);
+
+        // Obtener datos de horarios
+        const horariosResponse = await fetch('http://127.0.0.1:8000/adminapp/api/horarios/');
+        const horariosData = await horariosResponse.json();
+        setHorarios(horariosData);
+
+        // Obtener datos de laboratorios
+        const laboratoriosResponse = await fetch('http://127.0.0.1:8000/adminapp/api/laboratorios/');
+        const laboratoriosData = await laboratoriosResponse.json();
+        setLaboratorios(laboratoriosData);
+
+        // Obtener datos de usuarios
+        const usuariosResponse = await fetch('http://127.0.0.1:8000/adminapp/api/usuarios/');
+        const usuariosData = await usuariosResponse.json();
+        setUsuarios(usuariosData);
       } catch (error) {
-        console.error('Error fetching laboratory reservations:', error);
+        console.error('Error fetching data:', error);
       }
     };
 
-    fetchReservasLab();
+    fetchData();
   }, []);
 
   return (
@@ -36,20 +54,23 @@ const VerReservaLab = () => {
           <thead className="thead-dark">
             <tr>
               <th scope="col">Fecha de reserva</th>
-              <th scope="col">Horario reserva</th>
+              <th scope="col">Hora Inicio</th>
+              <th scope="col">Hora Fin</th>
               <th scope="col">Nombre del laboratorio</th>
-              <th scope="col">Aula</th>
               <th scope="col">Cod. Estudiante</th>
             </tr>
           </thead>
           <tbody>
-            {reservasLab.map(reservaLab => (
-              <tr key={reservaLab.id}>
-                <td>{reservaLab.fecha}</td>
-                <td>{reservaLab.Horario_id}</td>
-                <td>{reservaLab.laboratorio_id}</td>
-              </tr>
-            ))}
+          {reservasLab.map(reservaLab => (
+            <tr key={reservaLab.id}>
+              <td>{reservaLab.fecha}</td>
+              <td>{horarios.find(horario => horario.id === reservaLab.horario)?.hora_inicio}</td>
+              <td>{horarios.find(horario => horario.id === reservaLab.horario)?.hora_fin}</td>
+              <td>{laboratorios.find(laboratorio => laboratorio.id === reservaLab.laboratorio)?.nombre}</td>
+              <td>{usuarios.find(usuario => usuario.id === reservaLab.usuario)?.codigo}</td>
+            </tr>
+          ))}
+
           </tbody>
         </table>
         <div className="button-group">

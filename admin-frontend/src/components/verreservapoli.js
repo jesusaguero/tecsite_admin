@@ -1,25 +1,40 @@
 import React, { useEffect, useState } from 'react';
 
 const VerReservaPoli = () => {
-  const [reservas, setReservas] = useState([]);
+  const [reservasPoli, setReservasPoli] = useState([]);
+  const [horarios, setHorarios] = useState([]);
+  const [polideportivos, setPolideportivos] = useState([]);
+  const [usuarios, setUsuarios] = useState([]);
 
   useEffect(() => {
-    const fetchReservas = async () => {
+    const fetchData = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/adminapp/api/reservapolideportivos/');
-        const data = await response.json();
-        setReservas(data);
+        const reservasResponse = await fetch('http://127.0.0.1:8000/adminapp/api/reservapolideportivos/');
+        const reservasPoliData = await reservasResponse.json();
+        setReservasPoli(reservasPoliData);
+
+        const horariosResponse = await fetch('http://127.0.0.1:8000/adminapp/api/horarios/');
+        const horariosData = await horariosResponse.json();
+        setHorarios(horariosData);
+
+        const polideportivosResponse = await fetch('http://127.0.0.1:8000/adminapp/api/polideportivos/');
+        const polideportivosData = await polideportivosResponse.json();
+        setPolideportivos(polideportivosData);
+
+        const usuariosResponse = await fetch('http://127.0.0.1:8000/adminapp/api/usuarios/');
+        const usuariosData = await usuariosResponse.json();
+        setUsuarios(usuariosData);
       } catch (error) {
         console.error('Error fetching reservations:', error);
       }
     };
 
-    fetchReservas();
+    fetchData();
   }, []);
 
   return (
     <div>
- <header className="bg-dark text-white">
+      <header className="bg-dark text-white">
         <div className="container py-2">
           <div className="d-flex flex-wrap align-items-center justify-content-center">
             <a href="/" className="d-flex align-items-center text-white text-decoration-none">
@@ -32,24 +47,27 @@ const VerReservaPoli = () => {
       <div className="container mt-4">
         <h2 className="mb-4">Reservas de Polideportivos</h2>
         <table className="table table-striped table-bordered">
-  <thead className="thead-dark">
-    <tr>
-      <th scope="col">Nombre Polideportivo</th>
-      <th scope="col">Fecha</th>
-      <th scope="col">Usuario</th>
-
-    </tr>
-  </thead>
-  <tbody>
-    {reservas.map(item => (
-      <tr key={item.id}>
-        <td>{item.nombrePolideportivo}</td>
-        <td>{item.fecha}</td> 
-
-      </tr>
-    ))}
-  </tbody>
-</table>
+          <thead className="thead-dark">
+            <tr>
+              <th scope="col">Fecha de reserva</th>
+              <th scope="col">Hora Inicio</th>
+              <th scope="col">Hora Fin</th>
+              <th scope="col">Nombre del polideportivo</th>
+              <th scope="col">Cod. Estudiante</th>
+            </tr>
+          </thead>
+          <tbody>
+            {reservasPoli.map(reservaPoli => (
+              <tr key={reservaPoli.id}>
+                <td>{reservaPoli.fecha}</td>
+                <td>{horarios.find(horario => horario.id === reservaPoli.horario)?.hora_inicio}</td>
+                <td>{horarios.find(horario => horario.id === reservaPoli.horario)?.hora_fin}</td>
+                <td>{polideportivos.find(polideportivo => polideportivo.id === reservaPoli.polideportivo)?.nombre}</td>
+                <td>{usuarios.find(usuario => usuario.id === reservaPoli.usuario)?.codigo}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
         <div className="button-group">
           <a href="/" className="btn btn-lg btn-primary mt-3">Regresar</a>
         </div>
