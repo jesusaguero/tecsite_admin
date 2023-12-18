@@ -7,7 +7,7 @@ from .models import (Horario, Laboratorio, Pabellon, Polideportivo,
 class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuario
-        fields = ['id', 'código', 'contrasena']
+        fields = ['id', 'codigo', 'contrasena']
 
 class PolideportivoSerializer(serializers.ModelSerializer):
     class Meta:
