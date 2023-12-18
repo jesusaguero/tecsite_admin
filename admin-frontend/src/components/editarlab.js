@@ -8,7 +8,6 @@ const Editarlab = () => {
   const [mensaje, setMensaje] = useState('');
 
   useEffect(() => {
-    // Obtener la lista de laboratorios
     const fetchLaboratorios = async () => {
       try {
         const response = await fetch('http://127.0.0.1:8000/adminapp/api/laboratorios/');
@@ -31,7 +30,6 @@ const Editarlab = () => {
     const lab = laboratorios.find(item => item.id === idSeleccionado);
     setLabSeleccionado(lab);
 
-    // Inicializa el nuevoNombre y nuevoPabellon con los valores actuales del laboratorio seleccionado
     setNuevoNombre(lab ? lab.nombre : '');
     setNuevoPabellon(lab ? lab.pabellon : '');
   };
@@ -63,7 +61,6 @@ const Editarlab = () => {
 
       if (response.ok) {
         setMensaje('Laboratorio actualizado exitosamente');
-        // Puedes limpiar el formulario después de actualizar exitosamente
         setLabSeleccionado(null);
         setNuevoNombre('');
         setNuevoPabellon('');

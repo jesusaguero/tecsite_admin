@@ -10,7 +10,6 @@ const EditarHorario = () => {
 
   const [mensaje, setMensaje] = useState('');
 
-  // Función para manejar cambios en los campos del formulario
   const handleChange = (e) => {
     setHorarioSeleccionado({
       ...horarioSeleccionado,
@@ -18,7 +17,6 @@ const EditarHorario = () => {
     });
   };
 
-  // Función para cargar la lista de horarios al montar el componente
   useEffect(() => {
     const cargarHorarios = async () => {
       try {
@@ -33,21 +31,34 @@ const EditarHorario = () => {
     cargarHorarios();
   }, []);
 
-  // Función para cargar el horario seleccionado al cambiar la selección en el formulario
   const handleSelectChange = (e) => {
     const horarioId = e.target.value;
-    const horario = horarios.find((h) => h.id.toString() === horarioId);
-
-    if (horario) {
+  
+    if (horarioId) {
+      const horario = horarios.find((h) => h.id.toString() === horarioId);
+  
+      if (horario) {
+        setHorarioSeleccionado({
+          id: horario.id.toString(),
+          hora_inicio: horario.hora_inicio,
+          hora_fin: horario.hora_fin,
+        });
+      } else {
+        setHorarioSeleccionado({
+          id: '',
+          hora_inicio: '',
+          hora_fin: '',
+        });
+      }
+    } else {
       setHorarioSeleccionado({
-        id: horario.id.toString(),
-        hora_inicio: horario.hora_inicio,
-        hora_fin: horario.hora_fin,
+        id: '',
+        hora_inicio: '',
+        hora_fin: '',
       });
     }
   };
 
-  // Función para enviar la solicitud de edición al servidor
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -73,7 +84,7 @@ const EditarHorario = () => {
 
   return (
     <div>
-    <header className="bg-dark text-white">
+      <header className="bg-dark text-white">
         <div className="container py-2">
           <div className="d-flex flex-wrap align-items-center justify-content-center">
             <a href="/" className="d-flex align-items-center text-white text-decoration-none">
@@ -82,55 +93,61 @@ const EditarHorario = () => {
           </div>
         </div>
       </header>
-      <h2>Editar Horario</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Seleccionar Horario:</label>
-          <select onChange={handleSelectChange}>
-            <option value="">Seleccione un horario</option>
-            {horarios.map((h) => (
-              <option key={h.id} value={h.id}>
-                {h.hora_inicio} - {h.hora_fin}
-              </option>
-            ))}
-          </select>
-        </div>
-        {horarioSeleccionado.id && (
-          <>
-            <div className="form-group">
-              <label>ID:</label>
-              <input type="text" className="form-control" name="id" value={horarioSeleccionado.id} readOnly />
-            </div>
-            <div className="form-group">
-              <label>Hora de Inicio:</label>
-              <input
-                type="text"
-                className="form-control"
-                name="hora_inicio"
-                value={horarioSeleccionado.hora_inicio}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="form-group">
-              <label>Hora de Fin:</label>
-              <input
-                type="text"
-                className="form-control"
-                name="hora_fin"
-                value={horarioSeleccionado.hora_fin}
-                onChange={handleChange}
-              />
-            </div>
-            <button type="submit" className="btn btn-primary">
-              Guardar Cambios
-            </button>
-          </>
+      <div className="container mt-4">
+        <h2>Editar Horario</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label>Seleccionar Horario:</label>
+            <select onChange={handleSelectChange}>
+              <option value="">Seleccione un horario</option>
+              {horarios.map((h) => (
+                <option key={h.id} value={h.id}>
+                  {h.hora_inicio} - {h.hora_fin}
+                </option>
+              ))}
+            </select>
+          </div>
+          {horarioSeleccionado.id && (
+            <>
+              <div className="form-group">
+                <label>ID:</label>
+                <input type="text" className="form-control" name="id" value={horarioSeleccionado.id} readOnly />
+              </div>
+              <div className="form-group">
+                <label>Hora de Inicio:</label>
+                <input
+                  type="time"
+                  className="form-control"
+                  name="hora_inicio"
+                  value={horarioSeleccionado.hora_inicio}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-group">
+                <label>Hora de Fin:</label>
+                <input
+                  type="time"
+                  className="form-control"
+                  name="hora_fin"
+                  value={horarioSeleccionado.hora_fin}
+                  onChange={handleChange}
+                />
+              </div>
+              <button type="submit" className="btn btn-primary">
+                Guardar Cambios
+              </button>
+            </>
+          )}
+        </form>
+        {mensaje && (
+          <div className={`alert ${mensaje.includes('éxito') ? 'alert-success' : 'alert-success'} mt-3`} role="alert">
+            {mensaje}
+          </div>
         )}
-      </form>
-      {mensaje && <p>{mensaje}</p>}
-      <div className="button-group">
+        <div className="button-group">
           <a href="/" className="btn btn-lg btn-primary mt-3">Regresar</a>
         </div>
+      </div>
     </div>
   );
 };

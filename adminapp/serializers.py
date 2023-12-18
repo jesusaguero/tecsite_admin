@@ -7,33 +7,33 @@ from .models import (Horario, Laboratorio, Pabellon, Polideportivo,
 class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuario
-        fields = ['codigo', 'contrasena']
+        fields = ['id', 'código', 'contrasena']
 
 class PolideportivoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Polideportivo
-        fields = ['nombre']
+        fields = ['id','nombre']
 
 class PabellonSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pabellon
-        fields = ['nombre']
+        fields = ['id','nombre']
 
 class LaboratorioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Laboratorio
-        fields = ['nombre', 'pabellon']
+        fields = ['id','nombre', 'pabellon']
 
 class HorarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Horario
-        fields = ['hora_inicio', 'hora_fin']
+        fields = ['id','hora_inicio', 'hora_fin']
 class ReservaLaboratorioSerializer(serializers.ModelSerializer):
     class Meta:
         model = ReservaLaboratorio
-        fields = ['laboratorio', 'fecha', 'Horario', 'Usuario']
+        fields = ['id','laboratorio', 'fecha', 'Horario', 'Usuario']
 
 class ReservaPolideportivoSerializer(serializers.ModelSerializer):
     class Meta:
         model = ReservaPolideportivo
-        fields = ['polideportivo', 'fecha', 'Horario', 'Usuario']
+        fields = ['id','polideportivo', 'fecha', 'Horario', 'Usuario']
