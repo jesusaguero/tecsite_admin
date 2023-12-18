@@ -6,6 +6,33 @@ const VerReservaLab = () => {
   const [laboratorios, setLaboratorios] = useState([]);
   const [usuarios, setUsuarios] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(currentDate.toISOString().split('T')[0]);
+  const [llegoReservaLocal, setLlegoReservaLocal] = useState({});
+  const handleDateChange = (event) => {
+    setSelectedDate(event.target.value);
+  };
+
+  const isReservaDelDiaActual = (fecha) => {
+    const reservaDate = new Date(fecha);
+    const currentDateString = currentDate.toISOString().split('T')[0];
+    return reservaDate.toISOString().split('T')[0] === currentDateString;
+  };
+
+  const filteredReservas = reservasLab.filter((reservaLab) => {
+    const reservaDate = new Date(reservaLab.fecha);
+    const selectedDateObject = new Date(selectedDate);
+    return (
+      reservaDate.toISOString().split('T')[0] === selectedDateObject.toISOString().split('T')[0]
+    );
+  });
+
+  const handleLlegoChange = (id) => {
+    setLlegoReservaLocal((prevLlegoReservaLocal) => ({
+      ...prevLlegoReservaLocal,
+      [id]: !prevLlegoReservaLocal[id],
+    }));
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,6 +67,11 @@ const VerReservaLab = () => {
     fetchData();
   }, []);
 
+  const isReservaPasada = (fecha) => {
+    const reservaDate = new Date(fecha);
+    return reservaDate < currentDate;
+  };
+
   if (loading) {
     return <p>Cargando datos...</p>;
   }
@@ -58,6 +90,18 @@ const VerReservaLab = () => {
 
       <div className="container mt-4">
         <h2 className="mb-4">Reservas de Laboratorios</h2>
+
+        <div className="mb-3">
+          <label htmlFor="dateFilter" className="form-label">Filtrar por fecha:</label>
+          <input
+            type="date"
+            id="dateFilter"
+            className="form-control"
+            value={selectedDate}
+            onChange={handleDateChange}
+          />
+        </div>
+
         <table className="table table-striped table-bordered">
           <thead className="thead-dark">
             <tr>
@@ -69,22 +113,34 @@ const VerReservaLab = () => {
             </tr>
           </thead>
           <tbody>
-          {reservasLab.map(reservaLab => {
-            const horarioEncontrado = horarios.find(horario => horario.id === reservaLab.Horario);
-            const laboratorioEncontrado = laboratorios.find(laboratorio => laboratorio.id === reservaLab.laboratorio);
-            const usuarioEncontrado = usuarios.find(usuario => usuario.id === reservaLab.Usuario);
+            {filteredReservas.map((reservaLab) => {
+              const horarioEncontrado = horarios.find((horario) => horario.id === reservaLab.Horario);
+              const laboratorioEncontrado = laboratorios.find((laboratorio) => laboratorio.id === reservaLab.laboratorio);
+              const usuarioEncontrado = usuarios.find((usuario) => usuario.id === reservaLab.Usuario);
+              const reservaPasada = isReservaPasada(reservaLab.fecha);
 
-            return (
-              <tr key={reservaLab.id}>
-                <td>{reservaLab.fecha}</td>
-                <td>{horarioEncontrado ? horarioEncontrado.hora_inicio : 'N/A'}</td>
-                <td>{horarioEncontrado ? horarioEncontrado.hora_fin : 'N/A'}</td>
-                <td>{laboratorioEncontrado ? laboratorioEncontrado.nombre : 'N/A'}</td>
-                <td>{usuarioEncontrado ? usuarioEncontrado.codigo : 'N/A'}</td>
-              </tr>
-            );
-          })}
-
+              return (
+                <tr
+                  key={reservaLab.id}
+                  className={`${reservaPasada ? 'reserva-pasada' : ''} ${llegoReservaLocal[reservaLab.id] ? 'reserva-llego' : ''}`}
+                >
+                  <td>{reservaLab.fecha}</td>
+                  <td>{horarioEncontrado ? horarioEncontrado.hora_inicio : 'N/A'}</td>
+                  <td>{horarioEncontrado ? horarioEncontrado.hora_fin : 'N/A'}</td>
+                  <td>{laboratorioEncontrado ? laboratorioEncontrado.nombre : 'N/A'}</td>
+                  <td>{usuarioEncontrado ? usuarioEncontrado.codigo : 'N/A'}</td>
+                  <td>
+                    <input
+                      type="checkbox"
+                      checked={llegoReservaLocal[reservaLab.id] || false}
+                      onChange={() => handleLlegoChange(reservaLab.id)}
+                      disabled={reservaPasada}
+                    />
+                    Llegó
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
         <div className="button-group">
