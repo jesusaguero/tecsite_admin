@@ -120,10 +120,13 @@ const EditarPoli = () => {
         </form>
 
         {mensaje && (
-          <div className={`alert ${mensaje.includes('éxito') ? 'alert-success' : 'alert-danger'} mt-3`} role="alert">
+          <div className={`alert ${mensaje.includes('éxito') ? 'alert-success' : 'alert-success'} mt-3`} role="alert">
             {mensaje}
           </div>
         )}
+          <div className="button-group">
+          <a href="/" className="btn btn-lg btn-primary mt-3">Regresar</a>
+        </div>
       </div>
     </div>
   );

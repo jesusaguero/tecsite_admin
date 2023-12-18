@@ -66,7 +66,6 @@ const EditarUser = () => {
 
       if (response.ok) {
         setMensaje('Usuario actualizado exitosamente');
-        // Puedes limpiar el formulario después de actualizar exitosamente
         setUserSeleccionado({ id: null });
         setNuevoCodigo('');
         setNuevaContrasena('');
@@ -155,7 +154,7 @@ const EditarUser = () => {
         </form>
 
         {mensaje && (
-          <div className={`alert ${mensaje.includes('éxito') ? 'alert-success' : 'alert-danger'} mt-3`} role="alert">
+          <div className={`alert ${mensaje.includes('éxito') ? 'alert-success' : 'alert-success'} mt-3`} role="alert">
             {mensaje}
           </div>
         )}

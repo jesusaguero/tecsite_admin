@@ -5,36 +5,44 @@ const VerReservaLab = () => {
   const [horarios, setHorarios] = useState([]);
   const [laboratorios, setLaboratorios] = useState([]);
   const [usuarios, setUsuarios] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Obtener reservas de laboratorios
         const reservasResponse = await fetch('http://127.0.0.1:8000/adminapp/api/reservalaboratorios/');
-        const reservasData = await reservasResponse.json();
-        setReservasLab(reservasData);
+        const reservasLabData = await reservasResponse.json();
+        setReservasLab(reservasLabData);
 
-        // Obtener datos de horarios
         const horariosResponse = await fetch('http://127.0.0.1:8000/adminapp/api/horarios/');
         const horariosData = await horariosResponse.json();
         setHorarios(horariosData);
 
-        // Obtener datos de laboratorios
         const laboratoriosResponse = await fetch('http://127.0.0.1:8000/adminapp/api/laboratorios/');
         const laboratoriosData = await laboratoriosResponse.json();
         setLaboratorios(laboratoriosData);
 
-        // Obtener datos de usuarios
         const usuariosResponse = await fetch('http://127.0.0.1:8000/adminapp/api/usuarios/');
         const usuariosData = await usuariosResponse.json();
         setUsuarios(usuariosData);
+
+        setLoading(false);
+        console.log('Datos cargados correctamente:');
+        console.log('Reservas:', reservasLabData);
+        console.log('Horarios:', horariosData);
+        console.log('Laboratorios:', laboratoriosData);
+        console.log('Usuarios:', usuariosData);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching reservations:', error);
       }
     };
 
     fetchData();
   }, []);
+
+  if (loading) {
+    return <p>Cargando datos...</p>;
+  }
 
   return (
     <div>
@@ -61,15 +69,21 @@ const VerReservaLab = () => {
             </tr>
           </thead>
           <tbody>
-          {reservasLab.map(reservaLab => (
-            <tr key={reservaLab.id}>
-              <td>{reservaLab.fecha}</td>
-              <td>{horarios.find(horario => horario.id === reservaLab.horario)?.hora_inicio}</td>
-              <td>{horarios.find(horario => horario.id === reservaLab.horario)?.hora_fin}</td>
-              <td>{laboratorios.find(laboratorio => laboratorio.id === reservaLab.laboratorio)?.nombre}</td>
-              <td>{usuarios.find(usuario => usuario.id === reservaLab.usuario)?.codigo}</td>
-            </tr>
-          ))}
+          {reservasLab.map(reservaLab => {
+            const horarioEncontrado = horarios.find(horario => horario.id === reservaLab.Horario);
+            const laboratorioEncontrado = laboratorios.find(laboratorio => laboratorio.id === reservaLab.laboratorio);
+            const usuarioEncontrado = usuarios.find(usuario => usuario.id === reservaLab.Usuario);
+
+            return (
+              <tr key={reservaLab.id}>
+                <td>{reservaLab.fecha}</td>
+                <td>{horarioEncontrado ? horarioEncontrado.hora_inicio : 'N/A'}</td>
+                <td>{horarioEncontrado ? horarioEncontrado.hora_fin : 'N/A'}</td>
+                <td>{laboratorioEncontrado ? laboratorioEncontrado.nombre : 'N/A'}</td>
+                <td>{usuarioEncontrado ? usuarioEncontrado.codigo : 'N/A'}</td>
+              </tr>
+            );
+          })}
 
           </tbody>
         </table>
