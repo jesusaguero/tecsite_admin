@@ -6,7 +6,7 @@ El proyecto TECSITE ADMIN, ha sido desarrollado usando la siguiente estructura:
 
 # Paquetes instalados para la creación de la API REST
 
-1) python -m ven env
+1) python -m venv env
 2) pip install djangorestframework
 3) pip install django-filter
 4) pip install django-cors-headers
