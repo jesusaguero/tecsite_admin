@@ -6,7 +6,7 @@ El proyecto TECSITE ADMIN, ha sido desarrollado usando la siguiente estructura:
 
 # Paquetes instalados para la creación de la API REST
 
-1) python -m ven env
+1) python -m venv env
 2) pip install djangorestframework
 3) pip install django-filter
 4) pip install django-cors-headers
@@ -17,8 +17,9 @@ El proyecto TECSITE ADMIN, ha sido desarrollado usando la siguiente estructura:
 1) npx create-react-app adminapp
 2) npm i react-scripts
 3) npm install react-router-dom
-4) npm install axios
-5) npm install bootstrap
+4) npm install react-router-dom@5.2.0
+5) npm install axios
+6) npm install bootstrap
    
 # Comando para iniciar proyecto en Django
 -) Python manage.py runserver
